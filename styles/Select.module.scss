@@ -1,0 +1,27 @@
+@import "./variables.scss";
+
+.selectBox {
+  display: flex;
+  width: 5rem;
+  label {
+    cursor: pointer;
+  }
+  .optionsContainer {
+    background-color: #ffffff;
+    color: #000000;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .option {
+    .radio {
+      display: none;
+    }
+    &:hover {
+      background-color: $mainColor;
+    }
+  }
+}

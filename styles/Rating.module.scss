@@ -1,0 +1,43 @@
+@import "./variables.scss";
+
+.container {
+  width: 100%;
+  height: fit-content;
+  @include flex(center, center, column);
+  .klantescore {
+    font-size: 1.625rem;
+    font-weight: 500;
+    margin: 0 0 0 1.625rem;
+  }
+  .trustpilot {
+    display: inline-block;
+    font-size: 1.875rem;
+    font-weight: 500;
+    width: max-content;
+    margin: 0 1.625rem 0 0;
+    @include flex(center, center, row);
+    svg {
+      height: 1.875rem;
+      width: 1.875rem;
+      margin: 5px;
+    }
+  }
+}
+@media (min-width: 640px) {
+  .container {
+    height: 3.75rem;
+    @include flex(space-between, center, row);
+  }
+}
+
+@media (min-width: 1360px) {
+  .container {
+    @include flex(flex-end, center, row);
+    .klantescore {
+      margin: 0 1rem 0 0;
+    }
+    .trustpilot {
+      margin: 0 $sideFrame 0 0;
+    }
+  }
+}

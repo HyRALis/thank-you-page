@@ -1,0 +1,27 @@
+//Colors
+$mainColor: #eaf7fd;
+$cardColor: #52c2b6;
+$buttonColor: #e78589;
+$buttonHover: #ee676d;
+
+//Sizes
+$badgeSize: 4.125rem;
+$ringSize: 5.25rem;
+$buttonWidth: 31.5rem;
+$buttonHeight: 5rem;
+$cardHeight: 8.125rem;
+$cardWidth: 33.75rem;
+$cardFullHeight: 28.75rem;
+$cardFullWidth: 21.25rem;
+
+//Margins
+$cardMain: 1.875rem;
+$cardBetween: 1.1875rem;
+$sideFrame: 6.25rem;
+
+@mixin flex($justify, $align, $direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}

@@ -1,0 +1,36 @@
+@import "./variables.scss";
+
+.footer {
+  @include flex(center, center, column);
+  padding: 3.75rem 1.25rem;
+  height: 29.1875rem;
+  background-color: #134c60;
+  .ratingContainer {
+    max-width: 100%;
+  }
+  .service {
+    @include flex(center, center, column);
+    p,
+    a {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #ffffff;
+      margin: 10px;
+    }
+  }
+}
+
+@media (min-width: 1360px) {
+  .footer {
+    @include flex(space-between, center, row-reverse);
+    height: 9.0625rem;
+    margin: 0 0 2.25rem 0;
+    hr {
+      display: none;
+    }
+    .service {
+      @include flex(center, center, row);
+      margin: 0 0 0 $sideFrame;
+    }
+  }
+}

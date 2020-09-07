@@ -1,0 +1,59 @@
+@import "./variables.scss";
+
+.headerScore {
+  width: 100%;
+  background-color: #eaf7fd;
+}
+
+.main {
+  @include flex(center, center, column);
+  width: 100%;
+  .sectionOne {
+    @include flex(center, center, column);
+    background-color: $mainColor;
+    width: 100%;
+    h2 {
+      font-size: 1.6875rem;
+      text-align: center;
+    }
+    .cardsContainer {
+      width: 100%;
+      @include flex(center, flex-end, column);
+    }
+  }
+  .sectionTwo {
+    @include flex(center, center, column);
+    width: 100%;
+    background-color: #ffffff;
+  }
+}
+
+@media (min-width: 720px) {
+  .main {
+    .sectionOne {
+      .cardsContainer {
+        @include flex(center, center, column);
+      }
+    }
+  }
+}
+
+@media (min-width: 1360px) {
+  .main {
+    .sectionOne {
+      h2 {
+        font-size: 2.375rem;
+        margin: 7.75rem;
+        br {
+          display: none;
+        }
+      }
+      .cardsContainer {
+        @include flex(center, center, row);
+      }
+    }
+    .sectionTwo {
+      background-color: $mainColor;
+    }
+  }
+}

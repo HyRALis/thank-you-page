@@ -1,0 +1,23 @@
+@import "./variables.scss";
+
+.container {
+  width: $buttonWidth;
+  max-width: 85%;
+  height: $buttonHeight;
+  margin: 4.25rem 0;
+  background-color: $buttonColor;
+  color: #ffffff;
+  font-size: 1.9375rem;
+  font-weight: bolder;
+  border: none;
+  border-radius: 5px;
+  &:hover {
+    background-color: $buttonHover;
+  }
+}
+
+@media (min-width: 1360px) {
+  .container {
+    margin: 7.8125rem 0 9.1875rem 0;
+  }
+}

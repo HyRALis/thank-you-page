@@ -1,0 +1,54 @@
+@import "./variables.scss";
+
+.container {
+  width: 100%;
+  height: 27.625rem;
+  position: relative;
+  @include flex(none, center, row);
+  color: $mainColor;
+  overflow: hidden;
+  .thankYou {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    @include flex(center, center, column);
+    color: #ffffff;
+    div {
+      @include flex(center, center, column);
+      svg {
+        fill: #ffffff;
+        height: 6.5625rem;
+        width: 6.5625rem;
+      }
+      h1 {
+        font-size: 2.625rem;
+        font-weight: bold;
+        text-align: center;
+        margin: 2.5rem;
+      }
+    }
+    h3 {
+      font-size: 1.75rem;
+      font-weight: 500;
+      text-align: center;
+      margin: 0;
+    }
+  }
+}
+
+@media (min-width: 1360px) {
+  .container {
+    height: 28.5625rem;
+    .thankYou {
+      div {
+        @include flex(center, center, row);
+        h1 {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+}

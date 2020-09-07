@@ -1,0 +1,28 @@
+{
+  "translations": {
+    "enUS": {
+      "note": "YOUR PAYMENT WAS SUCCESFUL!",
+      "confirmation": "You will receive an order confirmation by e-mail within a few minutes",
+      "message": "The first step is completed. What else follows:",
+      "buttonLabel": "BACK TO HOMEPAGE",
+      "footerOne": "Algemene voorwaarden",
+      "footerTwo": "Privacy & Cookie policy"
+    },
+    "mk": {
+      "note": "ВАШАТА УПЛАТА Е УСПEШНА!",
+      "confirmation": "Ќе добиете е-mail за потврда на вашата нарачка во наредните неколку минути",
+      "message": "Првиот чекор е завршен. Следно е: ",
+      "buttonLabel": "НАЗАД КОН ПОЧЕТНА",
+      "footerOne": "Правила и услови",
+      "footerTwo": "Полиса за приватност и колачиња"
+    },
+    "nl": {
+      "note": "UW BETALING IS GESLAAGD!",
+      "confirmation": "U ontvangt binnen enkele minuten een bestelbevestiging per e-mail",
+      "message": "De eerste stap is voltooid. Watvolgt er nog meer:",
+      "buttonLabel": "TERUG NAAR HOMEPAGE",
+      "footerOne": "Terms and Conditions",
+      "footerTwo": "Privacy & Cookie policy"
+    }
+  }
+}

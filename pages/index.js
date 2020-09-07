@@ -1,65 +1,91 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
 
-export default function Home() {
+import { Fragment, useState } from "react";
+import fetch from "isomorphic-unfetch";
+import Card from "../componets/Card";
+import Slider from "../componets/Slider";
+
+import styles from "../styles/Home.module.scss";
+
+import translations from "../public/assets/translations.json";
+import BackHomepage from "../componets/BackHomepage";
+import Navbar from "../componets/Navbar";
+import Rating from "../componets/Rating";
+import Footer from "../componets/Footer";
+
+const Home = ({ content }) => {
+  const usaTranslations = [
+    "Collect your required documentation.",
+    "Send us your documents or let us pick them up.",
+    "We check your documents upon arrival.",
+    "The application is processed at the embassy.",
+    "After completion we collect your visa / legalization and return it.",
+    "You can always follow the status of your application yourself via your personal account.",
+  ];
+  const mkTranslations = [
+    "Соберете ја вашата потребана документација.",
+    "Пратете ни ги вашите документи или дозволете ние да ги собереме за Вас.",
+    "Ние ги проверуваме Вашите документи откако ќе пристигнат.",
+    "Вашата апликација се процесира во амбасадата.",
+    "Откако ќе биде готова Вашата виза / легализација, ние ја земаме и Ви ја испраќаме.",
+    "Вие во секое време можете да ја следите состојбата на вашата апликација преку Вашата лична сметка.",
+  ];
+
+  const fullContent = content.map((nl, index) => ({
+    nl: nl,
+    mk: mkTranslations[index],
+    enUS: usaTranslations[index],
+  }));
+
+  const [language, setLanguage] = useState({ label: "", value: "nl" });
+  const [staticText, setStaticText] = useState(translations.translations);
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <Fragment>
+      <Head></Head>
+      <header>
+        <Navbar SetLanguage={setLanguage} />
+        <div className={styles.headerScore}>
+          <Rating Rating={9.3} Fill="#02B87A" Color="#000000" />
         </div>
+      </header>
+      <main className={styles.main}>
+        <Slider Language={language.value} StaticText={staticText} />
+        <section className={styles.sectionOne}>
+          <h2>
+            {`${staticText[language.value].message.split(".")[0]}.`}
+            <br />
+            {staticText[language.value].message.split(".")[1]}
+          </h2>
+          <div className={styles.cardsContainer}>
+            {content &&
+              fullContent.map((content, index) => (
+                <Card
+                  key={index}
+                  Content={content[language.value]}
+                  Index={index}
+                />
+              ))}
+          </div>
+        </section>
+        <section className={styles.sectionTwo}>
+          <BackHomepage
+            label={staticText[language.value].buttonLabel.toUpperCase()}
+          />
+        </section>
       </main>
+      <Footer StaticText={staticText} Language={language.value} />
+    </Fragment>
+  );
+};
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+export async function getStaticProps(context) {
+  const res = await fetch("https://test-api.acc.tcc.rocks/api/content");
+  const result = await res.json();
+  return {
+    props: {
+      content: result,
+    },
+  };
 }
+
+export default Home;
