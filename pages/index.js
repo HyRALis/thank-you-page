@@ -41,7 +41,17 @@ const Home = ({ content }) => {
   const [staticText, setStaticText] = useState(translations.translations);
   return (
     <Fragment>
-      <Head></Head>
+      <Head>
+        <title>Thank you!</title>
+        <meta
+          name="description"
+          content="Thank you for the order. Follow the next steps for successful Visa/ legalization."
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <header>
         <Navbar SetLanguage={setLanguage} />
         <div className={styles.headerScore}>

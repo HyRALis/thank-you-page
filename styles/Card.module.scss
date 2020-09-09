@@ -12,6 +12,11 @@
   box-shadow: 3px 0px 9px 1px rgba(0, 0, 0, 0.5);
   animation: slide-left 1s ease-in;
   transition: all 0.4s;
+  &:hover > .outerRing {
+    .badge {
+      transform: rotate(360deg);
+    }
+  }
   .outerRing {
     position: absolute;
     left: -2.625rem;
@@ -28,6 +33,8 @@
       border-radius: 50%;
       height: $badgeSize;
       width: $badgeSize;
+      transition-duration: 1s;
+      transition-property: transform;
       p {
         text-transform: capitalize;
         font-size: 24px;
