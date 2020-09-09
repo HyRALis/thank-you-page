@@ -19,7 +19,6 @@
     svg {
       height: 1.875rem;
       width: 1.875rem;
-      margin: 5px;
     }
   }
 }
@@ -38,6 +37,9 @@
     }
     .trustpilot {
       margin: 0 $sideFrame 0 0;
+      svg {
+        margin: 5px;
+      }
     }
   }
 }
